@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
         RecyclerView recyclerView = binding.recyclerView;
-        list.add("Milk");
-        list.add("Eggs");
         ShoppingListAdapter adapter = new ShoppingListAdapter(list);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
