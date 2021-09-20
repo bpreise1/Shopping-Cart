@@ -1,6 +1,8 @@
 package com.example.shoppingcart;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         View view = binding.getRoot();
         setContentView(view);
+
+        RecyclerView recyclerView = binding.recyclerView;
+        list.add("Milk");
+        list.add("Eggs");
+        ShoppingListAdapter adapter = new ShoppingListAdapter(list);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void displayAddItem(View view) {
