@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(addItemBinding.item.getText().toString());
         View v = binding.getRoot();
         setContentView(v);
-        logList();
+        logList();//display list of items currently in shopping list
     }
 
     public void logList() {
