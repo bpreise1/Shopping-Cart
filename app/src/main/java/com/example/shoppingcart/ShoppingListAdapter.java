@@ -9,14 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.shoppingcart.databinding.ItemLayoutBinding;
-
 import java.util.Vector;
 
 public class ShoppingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Vector<String> list;
-    private ItemLayoutBinding binding;
 
     public ShoppingListAdapter(Vector<String> list_) {
         list = list_;

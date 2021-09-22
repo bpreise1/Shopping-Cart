@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         logList();//display list of items currently in shopping list
     }
 
+    public void promptRemoveItem(View view) {
+        System.out.println("REMOVING");
+    }
+
     public void logList() {
         for(String item : list) {
             System.out.println(item);
