@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         addItemBinding = AddItemBinding.inflate(getLayoutInflater());
 
+        //Add item to list on "Enter" press
         addItemBinding.item.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Populate list
         list.add("Milk");
         list.add("Eggs");
         list.add("Cheese");
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
 
-        @Override
+        @Override//Handle slide to delete
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             final int position = viewHolder.getAdapterPosition();
 
@@ -96,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     }).show();
         }
 
-        @Override
+        @Override//Handle sliding style
         public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
             new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                     .addBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.design_default_color_error))
@@ -108,11 +110,13 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    //Show add item view
     public void displayAddItem(View view) {
         View v = addItemBinding.getRoot();
         setContentView(v);
     }
 
+    //Add item and update recycler view
     public void addItemToList(View view) {
         list.add(addItemBinding.item.getText().toString());
         adapter.notifyItemInserted(list.size()-1);
@@ -121,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         logList();//display list of items currently in shopping list
     }
 
+    //print items in view to logcat
     public void logList() {
         for(String item : list) {
             System.out.println(item);
