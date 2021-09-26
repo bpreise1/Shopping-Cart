@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 
 import com.example.shoppingcart.databinding.ActivityMainBinding;
 import com.example.shoppingcart.databinding.AddItemBinding;
@@ -34,6 +37,26 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         addItemBinding = AddItemBinding.inflate(getLayoutInflater());
+
+        addItemBinding.item.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if((keyEvent != null && (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || i == EditorInfo.IME_ACTION_DONE) {
+                    addItemToList(addItemBinding.getRoot());
+                }
+                return false;
+            }
+        });
+
+        list.add("Milk");
+        list.add("Eggs");
+        list.add("Cheese");
+        list.add("Bread");
+        list.add("Chicken");
+        list.add("Spinach");
+        list.add("Apples");
+        list.add("Potato Chips");
+        list.add("Oreos");
 
         View view = binding.getRoot();
         setContentView(view);
