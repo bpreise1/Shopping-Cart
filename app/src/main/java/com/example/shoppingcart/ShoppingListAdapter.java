@@ -33,6 +33,10 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
+    public void deleteItem(int pos) {
+        list.remove(pos);
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

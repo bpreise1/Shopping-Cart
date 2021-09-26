@@ -11,8 +11,7 @@
         android:layout_weight="1"
         android:text="TextView"
         android:textSize="100dp"
-        android:clickable="true"
-        android:onClick="promptRemoveItem" />
+        android:textColor="@color/black"/>
 
     <CheckBox
         android:id="@+id/checkBox"
